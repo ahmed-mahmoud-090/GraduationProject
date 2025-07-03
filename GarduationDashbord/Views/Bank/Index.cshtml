@@ -1,0 +1,89 @@
+﻿@model List<Bank>
+
+<form class="d-flex mx-auto w-50 mb-3" asp-action="Search" method="get">
+    <input class="form-control me-2 fs-5" type="search" name="query" placeholder="Search..." aria-label="Search">
+    <button class="btn btn-outline-success fs-5" type="submit">
+        <i class="fas fa-search"></i>
+    </button>
+</form>
+
+<a asp-action="Create" class="btn btn-outline-success w-100 mb-3">Create New Bank</a>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 col-lg-3 mb-4">
+                <div class="card custom-card">
+
+                    @if (!string.IsNullOrEmpty(item.Image))
+                    {
+                        <div class="image-container">
+                            <img class="card-img-top" src="@item.Image" alt="Bank Image">
+                        </div>
+                    }
+
+                    <div class="card-body">
+                        <h6 class="card-title"><strong>Name:</strong> @item.Name</h6>
+                        <h6 class="card-title"><strong>Rating:</strong> @item.Rating</h6>
+                        <h6 class="card-title"><strong>Connect:</strong> @item.ScialMedia</h6>
+                        <h6 class="card-title"><strong>City:</strong> @item.CityId</h6>
+
+                        <div class="mt-auto d-flex flex-column">
+                            <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-outline-success mb-2">Update</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .custom-card {
+        height: 400px; /* ✅ ضبط الطول ليكون متناسقًا */
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* ✅ تحسين الظل */
+        border-radius: 12px; /* ✅ تقريب الحواف */
+        transition: transform 0.2s ease-in-out;
+    }
+
+        .custom-card:hover {
+            transform: translateY(-5px); /* ✅ تأثير جميل عند التحويم */
+        }
+
+    .image-container {
+        height: 140px; /* ✅ ضبط حجم الصورة */
+        overflow: hidden;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* ✅ منع تشويه الصورة */
+    }
+
+    .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 12px;
+    }
+
+    .card-title {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 6px 12px;
+        text-align: center;
+    }
+</style>

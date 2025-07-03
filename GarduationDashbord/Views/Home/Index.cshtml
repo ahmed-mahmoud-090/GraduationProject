@@ -1,0 +1,309 @@
+﻿@using GarduationDashbord.Controllers
+@model List<Person>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        @foreach (var item in Model.Select((person, index) => new { person, index }))
+        {
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="card shadow-sm animate-card" style="animation-delay: @(item.index * 0.5)s;">
+                    @if (!string.IsNullOrEmpty(item.person.Image))
+                    {
+                        <img class="card-img-top user-image" src="@item.person.Image" alt="User Image">
+                    }
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold text-primary">@item.person.Name</h5>
+                        <p class="card-text typewriter" style="animation-delay: @(1 + item.index * 0.5)s;"><i class="fas fa-map-marker-alt text-danger"></i> @item.person.Role</p>
+                        <p class="card-text typewriter" style="animation-delay: @(1.5 + item.index * 0.5)s;"><i class="fas fa-envelope text-info"></i> @item.person.Bdata</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="analytics-section">
+    <h2>Dashboard Insights</h2>
+    <div class="row">
+        <!-- Charts Section -->
+        <div class="col-lg-6 col-md-12">
+            <canvas id="visitorChart"></canvas>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <canvas id="bookingChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Tools and Technologies Section -->
+    <div class="tools-section mt-5">
+        <h2>Technologies & Tools</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="tool-card">
+                    <i class="fab fa-microsoft text-primary"></i>
+                    <h5>ASP.NET Core</h5>
+                    <p>Powerful framework for building scalable web applications and APIs.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="tool-card">
+                    <i class="fab fa-js-square text-warning"></i>
+                    <h5>JavaScript</h5>
+                    <p>Dynamic programming language for interactive and responsive UIs.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="tool-card">
+                    <i class="fas fa-database text-info"></i>
+                    <h5>SQL Server</h5>
+                    <p>Robust database management system to store and retrieve data efficiently.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer bg-dark text-white py-4">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="mb-2">Connect with us:</p>
+                <div class="social-links">
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/profile.php?id=100015962448326" class="text-white mx-2" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                   
+                    <!-- GitHub -->
+                    <a href="https://github.com/" class="text-white mx-2" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/" class="text-white mx-2" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <p class="mt-3">&copy; 2025 Graduation Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<style>
+    /* Reset styles */
+    body, html {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Main content should take all available space */
+    .content {
+        flex: 1;
+    }
+
+    /* Footer styling */
+    .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+        .footer .social-links a {
+            font-size: 20px;
+            margin: 0 10px;
+            color: white;
+            transition: color 0.3s;
+        }
+
+            .footer .social-links a:hover {
+                color: #00bcd4;
+            }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script>
+    // Visitor Analytics Chart
+    const ctx1 = document.getElementById('visitorChart').getContext('2d');
+    new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Visitors',
+                data: [300, 500, 400, 600, 800, 700],
+                borderColor: '#4facfe',
+                backgroundColor: 'rgba(79, 172, 254, 0.2)',
+                borderWidth: 2,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    // Booking Analytics Chart
+    const ctx2 = document.getElementById('bookingChart').getContext('2d');
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Bookings',
+                data: [100, 200, 150, 300, 250, 400],
+                backgroundColor: '#00f2fe',
+                borderColor: '#007bff',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+</script>
+
+<style>
+    .analytics-section {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+        .analytics-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+    .tools-section h2 {
+        font-size: 26px;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    canvas {
+        max-width: 100%;
+        height: 300px;
+        margin: 20px auto;
+    }
+
+    .tool-card {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .tool-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .tool-card i {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .tool-card h5 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .tool-card p {
+            font-size: 14px;
+            color: #555;
+        }
+</style>
+
+<!-- ✅ تحسينات CSS مع أنيميشن -->
+<style>
+    .card {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        opacity: 0;
+        transform: scale(1.2);
+        height: 500px;
+    }
+
+    .animate-card {
+        animation: fadeInShrink 1.5s forwards;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .user-image {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-bottom: 3px solid #ddd;
+    }
+
+    .card-body {
+        background-color: #fdfdfd;
+        padding: 20px;
+        border-top: 3px solid #ddd;
+        transition: opacity 0.8s ease-in-out;
+    }
+
+    .card-title {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .card-text {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    /* ✅ أنيميشن يجعل الكارد يظهر كبيرًا ثم يصغر */
+    @@keyframes fadeInShrink {
+        from {
+            opacity: 0;
+            transform: scale(1.2);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* ✅ تأثير الكتابة الحيّة للنص */
+    .typewriter {
+        overflow: hidden;
+        border-right: 2px solid black;
+        white-space: nowrap;
+        display: inline-block;
+        animation: typing 2s steps(30, end) forwards, blinkCursor 2s steps(30, end) forwards;
+    }
+
+    @@keyframes typing {
+        from {
+            width: 0;
+        }
+
+        to {
+            width: 100%;
+        }
+    }
+
+    /* ✅ المؤشر الوامض سيتوقف بعد انتهاء الكتابة */
+    @@keyframes blinkCursor {
+        50% {
+            border-color: black;
+        }
+
+        100% {
+            border-color: transparent;
+        }
+    }
+</style>

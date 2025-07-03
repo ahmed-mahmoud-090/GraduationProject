@@ -1,0 +1,133 @@
+﻿@model Restaurant
+
+<section class="bg-light p-3 p-md-4 p-xl-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-xxl-11">
+                <div class="card border-light-subtle shadow-sm">
+                    <div class="row g-0">
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="col-12 col-md-6">
+                                <input type="file" id="fileInput" name="ImageFile" class="form-control" onchange="previewImage(event)">
+
+                                <img class="img-fluid rounded-start w-100 h-100 object-fit-cover mt-3"
+                                     id="output"
+                                     src="@(!string.IsNullOrEmpty(Model.Image) ? Url.Content("~/images/" + Model.Image) : "")"
+                                     alt="User Image">
+                            </div>
+
+                            @section Scripts
+                            {
+                                <script>
+                                    function previewImage(event) {
+                                        var file = event.target.files[0];
+                                        if (!file) return;
+
+                                        var reader = new FileReader();
+                                        reader.onload = function () {
+                                            document.getElementById('output').src = reader.result;
+                                        };
+                                        reader.readAsDataURL(file);
+                                    }
+                                </script>
+                            }
+
+                            <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+                                <div class="col-12 col-lg-11 col-xl-10">
+                                    <div class="card-body p-3 p-md-4 p-xl-5">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="mb-5">
+
+                                                    <h2 class="h4 text-center">Update Information</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row gy-3 overflow-hidden">
+                                            <div class="col-12">
+                                                <div class="form-floating mb-3">
+                                                    <input asp-for="Name" type="text" class="form-control" id="Name"  placeholder="Name">
+                                                    <label for="firstName" class="form-label">UserName</label>
+                                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="row gy-3 overflow-hidden">
+                                                <div class="col-12">
+                                                    <div class="form-floating mb-3">
+                                                        <input asp-for="Rating" type="text" class="form-control" name="Rating" id="Rating" value="@Model.Rating" placeholder="Rating">
+                                                        <label for="Rating" class="form-label">Rating</label>
+                                                        <span asp-validation-for="Rating" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-floating mb-3">
+                                                        <input asp-for="@Model.ScialMedia" type="text" class="form-control" name="ScioalMedia" id="ScioalMedia" placeholder="ScioalMedia">
+                                                        <label for="ScioalMedia" class="form-label">ScioalMedia</label>
+                                                        <span asp-validation-for="ScialMedia" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-floating mb-3">
+                                                        <input asp-for="@Model.CityId" type="number" class="form-control" name="CityId" id="CityId" placeholder="CityId" required>
+                                                        <label for="CityId" class="form-label">CityId</label>
+                                                        <span asp-validation-for="CityId" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-floating mb-3">
+                                                        <input asp-for="@Model.Rating" type="number" class="form-control" name="Rating" id="CityId" placeholder="Rating" required>
+                                                        <label for="Rating" class="form-label">Rating</label>
+                                                        <span asp-validation-for="Rating" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-floating mb-3">
+                                                        <input asp-for="@Model.OpiningHour" type="number" class="form-control" name="OpiningHour" id="OpiningHour" placeholder="OpiningHour" required>
+                                                        <label for="OpiningHour" class="form-label">OpiningHour</label>
+                                                        <span asp-validation-for="OpiningHour" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-floating mb-3">
+                                                        <input asp-for="@Model.PhoneNumber" type="number" class="form-control" name="PhoneNumber" id="PhoneNumber" placeholder="PhoneNumber" required>
+                                                        <label for="PhoneNumber" class="form-label">PhoneNumber</label>
+                                                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-floating mb-3">
+                                                    <input asp-for="@Model.TypeOfFood" type="text" class="form-control" name="TypeOfFood" id="TypeOfFood" placeholder="TypeOfFood" required>
+                                                    <label for="TypeOfFood" class="form-label">TypeOfFood</label>
+                                                    <span asp-validation-for="TypeOfFood" class="text-danger"></span>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-12">
+                                                <div class="d-grid">
+                                                    <button class="btn btn-dark btn-lg" type="submit">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

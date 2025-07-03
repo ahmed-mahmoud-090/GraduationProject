@@ -1,0 +1,18 @@
+﻿@model List<object>
+
+<h2>Search Results</h2>
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item</li> <!-- يمكنك تحسين العرض بناءً على نوع البيانات -->
+        }
+    </ul>
+}
+else
+{
+    <p>No results found.</p>
+}
+

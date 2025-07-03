@@ -1,0 +1,62 @@
+﻿@model List<TransportProvider>
+
+<a asp-action="Create" class="btn btn-outline-success w-100 mb-2">Create New Transport Provider</a>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 mb-4">
+                <div class="card custom-card">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title"><strong>Name:</strong> @item.Name</h6>
+                        <h6 class="card-title"><strong>Contact Info:</strong> @item.ContactInfo</h6>
+                        <h6 class="card-title"><strong>City ID:</strong> @item.CityId</h6>
+                        <h6 class="card-title"><strong>Price Model:</strong> @item.PriceModel</h6>
+                        <h6 class="card-title"><strong>Type Place ID:</strong> @item.TypePlaceID</h6>
+                        <h6 class="card-title"><strong>Provider Type:</strong> @item.ProviderType</h6>
+
+                        <div class="mt-auto">
+                            <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-success w-100 mb-2">Update</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger w-100">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .custom-card {
+        display: flex;
+        flex-direction: column;
+        height: 450px; /* ✅ تقليل الطول قليلاً */
+        border-radius: 10px; /* ✅ تقريب الزوايا */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* ✅ إضافة ظل */
+        transition: transform 0.2s ease-in-out;
+        padding: 10px;
+    }
+
+        .custom-card:hover {
+            transform: scale(1.05); /* ✅ تأثير عند تمرير الماوس */
+        }
+
+    .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .card-title {
+        font-size: 15px; /* ✅ تصغير النص قليلاً */
+        margin-bottom: 6px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px;
+    }
+</style>

@@ -1,0 +1,92 @@
+﻿@model TransportProvider
+
+<section class="bg-light p-3 p-md-4 p-xl-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-xxl-11">
+                <div class="card border-light-subtle shadow-sm">
+                    <div class="row g-0">
+                        <form method="post" enctype="multipart/form-data">
+
+                            <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+                                <div class="col-12 col-lg-11 col-xl-10">
+                                    <div class="card-body p-3 p-md-4 p-xl-5">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="mb-5">
+
+                                                    <h2 class="h4 text-center">Create New TrunsPort Provider</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row gy-3 overflow-hidden">
+                                            <div class="col-12">
+                                                <div class="form-floating mb-3">
+                                                    <input asp-for="Name" type="text" class="form-control" id="Name" placeholder="Name">
+                                                    <label for="firstName" class="form-label">Name</label>
+                                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="row gy-3 overflow-hidden">
+                                                <div class="col-12">
+                                                    <div class="form-floating mb-3">
+                                                        <input asp-for="@Model.PriceModel" type="number" class="form-control" name="PriceModel" id="PriceModel" required>
+                                                        <label for="PriceModel" class="form-label">Typeofplaceid</label>
+                                                        <span asp-validation-for="PriceModel" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-floating mb-3">
+                                                        <input asp-for="@Model.TypePlaceID" type="number" class="form-control" name="TypePlaceID" id="TypePlaceID" placeholder="TypePlaceID">
+                                                        <label for="TypePlaceID" class="form-label">TypePlaceID</label>
+                                                        <span asp-validation-for="TypePlaceID" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-floating mb-3">
+                                                        <input asp-for="@Model.CityId" type="number" class="form-control" name="CityId" id="CityId" placeholder="CityId" required>
+                                                        <label for="CityId" class="form-label">CityId</label>
+                                                        <span asp-validation-for="CityId" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-floating mb-3">
+                                                        <input asp-for="@Model.ContactInfo" type="text" class="form-control" name="ContactInfo" id="ContactInfo" placeholder="ContactInfo" required>
+                                                        <label for="ContactInfo" class="form-label">ContactInfo</label>
+                                                        <span asp-validation-for="ContactInfo" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-floating mb-3">
+                                                        <input asp-for="@Model.ProviderType" type="text" class="form-control" name="ProviderType" id="ProviderType" placeholder="ProviderType" required>
+                                                        <label for="ProviderType" class="form-label">ProviderType</label>
+                                                        <span asp-validation-for="ProviderType" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="d-grid">
+                                                        <button class="btn btn-dark btn-lg" type="submit">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,6 @@
+@Grad_HostAddress = http://localhost:5000
+
+GET {{Grad_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
