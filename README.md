@@ -56,7 +56,7 @@ dotnet run
 Once the server is running, visit:
 
 ```
-http://localhost:{your_port}/swagger
+http://localhost:{5001}/swagger
 ```
 
 Use Swagger UI to test endpoints interactively.
@@ -107,7 +107,7 @@ Use Swagger UI to test endpoints interactively.
 ## 🎥 Project Walkthrough Video
 
 You can watch the full walkthrough here:  
-👉 [Watch the project explanation video](https://your-video-link-here.com)
+👉 [Watch the project explanation video]()
 
 ---
 
