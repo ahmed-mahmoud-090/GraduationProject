@@ -1,46 +1,135 @@
-Ametia API - Empowering Tourists in  Overview
-Ametia is a robust RESTful API designed to support a Flutter-based mobile application aimed at enhancing the travel experience for tourists in Egypt. It provides essential services, including:
-- Hotel Listings
-- Tourist & Historical Attractions
-- Family-Friendly Destinations
-- Entertainment Venues
-- Banking Services
-- Embassy Information
+# 🌍 Ametia API - Empowering Tourists in Egypt
 
- System Requirements
-Ensure you have the following dependencies installed before running the project:
-- .NET 6/7+ (ASP.NET Core for API development)
-- SQL Server (Database Management System)
-- Entity Framework Core (ORM for database operations)
-- Windows / Linux / Docker (Runtime environment options)
+Ametia is a powerful RESTful API built with ASP.NET Core designed to support a Flutter-based tourism mobile application. It provides essential data and services to enhance the travel experience for tourists visiting Egypt.
 
- Getting Started
-Clone the Repository
+---
 
+## 🚀 Features
 
-Database Migration & Setup
+- 🏨 Hotel Listings  
+- 🏛️ Historical & Tourist Attractions  
+- 👨‍👩‍👧‍👦 Family-Friendly Destinations  
+- 🎉 Entertainment Venues  
+- 💰 Banking Services  
+- 🏢 Embassy Information  
+- 🍽️ Restaurants  
+- 🚌 Transport Providers  
+- 🌆 Cities  
+- 👥 User Authentication System
+
+---
+
+## ⚙️ System Requirements
+
+- [.NET 6 / 7+](https://dotnet.microsoft.com/)
+- SQL Server
+- Entity Framework Core
+- Docker / Windows / Linux (optional)
+
+---
+
+## 📥 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/Ametia-API.git
+cd Ametia-API
+```
+
+### 2. Database Migration
+
+```bash
 dotnet ef database update
+```
 
+### 3. Run the Server
 
-Run the API Server
+```bash
 dotnet run
+```
 
+---
 
- API Documentation
-Ametia API is documented using Swagger, making it easy to explore and test endpoints. Once the API is running, navigate to:
+## 📑 API Documentation
 
+Once the server is running, visit:
 
- Tech Stack
-- C# & ASP.NET Core (Web API Development)
-- SQL Server(Relational Database Management)
-- Entity Framework Core (Database Access & ORM)
-- JWT Authentication (Secure User Access)
-- Swagger UI (Interactive API Documentation)
+```
+http://localhost:{your_port}/swagger
+```
 
- Contributing
-We welcome contributions from the community! Follow these steps to contribute:
-1. Fork the repository.
-2. Create a new feature branch(git checkout -b feature-branch).
-3. Commit your changes (git commit -m Add new feature).
-4. Push to GitHub (git push origin feature-branch).
-5. Submit a Pull Request for review.
+Use Swagger UI to test endpoints interactively.
+
+---
+
+## 🛠️ Tech Stack
+
+- **C# & ASP.NET Core** – RESTful API
+- **SQL Server** – Database
+- **Entity Framework Core** – ORM
+- **JWT / Session-Based Auth** – Authentication
+- **Swagger UI** – API Documentation
+
+---
+
+## 🔐 Auth Endpoints
+
+| Method | Endpoint              | Description                 |
+|--------|-----------------------|-----------------------------|
+| POST   | `/api/User/Register`  | Register new user           |
+| GET    | `/api/User/Login`     | Login existing user         |
+| GET    | `/api/User/Forgot Password` | Forgot password         |
+| GET    | `/api/User/Load User` | Get current user data       |
+| POST   | `/api/User/Update`    | Update user details         |
+| GET    | `/api/User/Get All User` | Get all users (admin)   |
+| DELETE | `/api/User/Delete User?id={id}` | Delete a user     |
+
+---
+
+## 🌐 Main Endpoints Overview
+
+| Resource             | Endpoint Prefix        | Description                         |
+|----------------------|------------------------|-------------------------------------|
+| Banks                | `/api/Bank`            | Create, update, delete, get banks   |
+| Cities               | `/api/City`            | Manage city data                    |
+| Hotels               | `/api/Hotels`          | Manage hotel data                   |
+| Embassies            | `/api/Embassies`       | Manage embassy information          |
+| Restaurants          | `/api/Resturant`       | Manage restaurants                  |
+| Entertainment Places | `/api/EntertainmentPlace` | Manage entertainment venues   |
+| Tourist Places       | `/api/TourismPlace`    | Manage tourist attractions          |
+| Transport Providers  | `/api/Services`        | Manage transport services           |
+| Destination Filter   | `/api/Distnation`      | Top-rated filtering by city         |
+| Types of Places      | `/api/TypePlaces`      | Manage types of tourist places      |
+
+---
+
+## 🎥 Project Walkthrough Video
+
+You can watch the full walkthrough here:  
+👉 [Watch the project explanation video](https://your-video-link-here.com)
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repo
+2. Create a new branch (`git checkout -b feature-name`)
+3. Commit your changes (`git commit -m "Add feature"`)
+4. Push to the branch (`git push origin feature-name`)
+5. Open a Pull Request
+
+---
+
+## 📧 Contact
+
+If you have questions or feedback, feel free to open an issue or contact the maintainer.
+
+---
+
+> Made with 💙 by the Ametia Dev Team
+1-Ahmed Mahmoud Selim
+2-Andrew Magdy Fayez 
+3-Ahmed Mohamed Mohamed
+4-Beshoy Boktor 
+6-Kerolos Nashat 
