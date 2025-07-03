@@ -107,7 +107,7 @@ Use Swagger UI to test endpoints interactively.
 ## 🎥 Project Walkthrough Video
 
 You can watch the full walkthrough here:  
-👉 [Watch the project explanation video]()
+👉 [Watch the project explanation video](https://github.com/ahmed-mahmoud-090/GraduationProject/blob/main/Screen%20Recording%20(7-1-2025%201-12-26%20AM).gif)
 
 ---
 
