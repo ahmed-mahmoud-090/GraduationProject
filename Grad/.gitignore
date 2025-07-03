@@ -1,0 +1,70 @@
+﻿## Build results
+bin/
+obj/
+out/
+
+## Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## ASP.NET temp files
+*.dbmdl
+*.dbproj.schemaview
+*.pdb
+
+## User-specific files
+*.userprefs
+*.csproj.user
+*.userosscache
+*.suo
+
+## Others
+*.log
+*.DS_Store
+*.tgz
+*.tar.gz
+*.zip
+
+## NuGet packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Visual Studio Code
+.vscode/
+.history/
+
+## Logs
+*.log
+Logs/
+
+## Configuration files
+appsettings.*.json
+secrets.json
+
+## EF Core tools
+Migrations/
+
+## Docker
+docker-compose.override.yml
+docker-compose.override.*.yml
+Dockerfile*
+
+## Publish
+publish/
+*.publish.xml
+
+## Test results
+TestResults/
+coverage/
+
+## Temporary files
+*.tmp
+*.temp
